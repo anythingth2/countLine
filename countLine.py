@@ -1,5 +1,8 @@
 import os
-ALLOW_FILE_TYPES = ('java','dart','py','js','md','json',)
+__location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
+
+with open(os.path.join(__location__,('ALLOW_FILE_FORMAT.txt')),'r') as f:
+    ALLOW_FILE_TYPES = f.readlines()
 def countLine(path=os.getcwd()):
     dirs = os.listdir(path)
     dirs = list(map(lambda x: os.path.join(path,x),dirs))
